@@ -1,0 +1,18 @@
+.dropdown {
+    position: relative;
+}
+
+.dropdown-options {
+    position: fixed;
+    left: 0;
+    right: 0;
+    max-height: 0px;
+    transition: max-height 0.3s ease-in-out;
+    transition-delay: 0.1s;
+}
+
+.dropdown:hover .dropdown-options,
+.dropdown:focus .dropdown-options,
+.dropdown:focus-within .dropdown-options {
+    max-height: 285px;
+}

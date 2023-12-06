@@ -1,0 +1,9 @@
+.idea/
+venv
+project/.env
+project/app.log
+project/logs/log_*
+project/tables/*.csv
+project/controller/__pycache__/
+project/model/__pycache__/
+project/__pycache__/

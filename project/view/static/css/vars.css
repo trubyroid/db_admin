@@ -1,0 +1,11 @@
+:root {
+    --dropdown-buttons-hover-color: #861be3;
+    --dropdown-options-buttons-hover-color: #ba1bff;
+    --background-color: #1d2633;
+    --text-color: #212121;
+    --text-rcolor: #ffffff;
+    --border-color: #aebbca;
+    --border-color-hover: #ba1bff;
+    --border-color-active: #861be3;
+    --submit-button-color: #44eb99;
+}

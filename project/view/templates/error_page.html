@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Info21_v2 | {{ error_code }} {{ error_description }} </title>
+{% endblock %}
+
+{% block content %}
+    <div class="page-error">
+        <div class="error-code">{{ error_code }}</div>
+        <div class="error-description">{{ error_description }}</div>
+    </div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Info21_v2</title>
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="description">
+    <div class="desc wrapper">
+        <h2>About project</h2>
+        <div class="info-description scrollbar">
+            <p>
+                Info_21 version 2.0 is a progressive update of the original version, developed in Python using Flask
+                and Jinja2, two popular tools for creating web applications. The program provides users with an
+                intuitive interface for interacting with the PostgreSQL DBMS.
+            </p>
+            <p>
+                The main functions of Info_21 V.2 include viewing, editing, importing and exporting tables,
+                executing custom SQL queries, and accessing and executing functions and procedures stored in the
+                database. Thanks to this, users can easily and quickly access the necessary information, as well as
+                manage data in the database.
+            </p>
+            <p>
+                Overall, Info_21 V.2 is a powerful and versatile PostgreSQL tool that provides flexibility and
+                efficiency for developers, database administrators, and general users.
+            </p>
+        </div>
+        <h2>Developers</h2>
+        <div class="info-develops">
+            <div class="dev-card">
+                <div class="title">backend</div>
+                <div class="info">
+                    <div class="avatar"></div>
+                    <div class="main-info">
+                        <div class="tribe smooth-shade ignis-bgc ignis-ss">Ignis</div>
+                        <a href="https://edu.21-school.ru/profile/truby@student.21-school.ru" target="_blank" class="nick smooth-shade nick-bgc nick-ss">truby</a>
+                        <div class="contact-info">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="link telega"></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="link github"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dev-card">
+                <div class="title">frontend</div>
+                <div class="info">
+                    <div class="avatar"></div>
+                    <div class="main-info">
+                        <div class="tribe smooth-shade terra-bgc terra-ss">Terra</div>
+                        <a href="https://edu.21-school.ru/profile/truby@student.21-school.ru" target="_blank" class="nick smooth-shade nick-bgc nick-ss">vrivka</a>
+                        <div class="contact-info">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="link telega"></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="link github"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Info21_v2 | Operations | Functions</title>
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/functions.css') }}">    
+{% endblock %}
+
+{% block content %}
+{% from 'macroses.html' import create_table %}
+<div class="operations">
+    {% from 'macroses.html' import create_card %}
+    <div class="templ wrapper">
+        <div class="funcs scrollbar">
+            {% for fnc in functions %}
+            {{ create_card(fnc['type'], fnc['name'], fnc['description'], fnc['args']) }}
+            {% endfor %}
+        </div>
+        {% if has_table %}
+        <div class="btns">
+            <a href="#result-op" class="btn btn-operations">Result</a>
+        </div>
+        {% endif %}
+    </div>
+    {% set result %}
+    <div class="result-content">
+        {% if has_table %}
+            <div class="result-table function-result">
+                {{ create_table(table_columns, table_data) }}
+            </div>
+            <form action="/function_result_export" method="post" id="export-form"
+                onsubmit="return confirm('Confirm action')" enctype="multipart/form-data" class="export-form">
+                <input type="submit" value="Export" class="export-btn">
+            </form>
+        {% else %}
+            {{ proc_result }}
+        {% endif %}
+    </div>
+    {% endset %}
+
+    {% from 'macroses.html' import create_modal %}
+    {{ create_modal('result-op', 'Result', result) }}
+</div>
+
+{% endblock %}

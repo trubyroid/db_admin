@@ -1,0 +1,71 @@
+@import url(form.css);
+@import url(macroses.css);
+@import url(table.css);
+
+.operations {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 24px;
+    gap: 12px;
+}
+
+.query-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.query-form {
+    flex-direction: row;
+    flex-basis: 0;
+}
+
+.query {
+    gap: 12px;
+    flex-basis: 100%;
+}
+
+.query-submit {
+    flex-basis: 10%;
+}
+
+.btn-operations {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    flex-basis: 30%;
+}
+
+.result-content {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.result-table {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+}
+
+.result-export {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 10%;
+}
+
+.export-form {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100%;
+}
+
+.export-btn {
+    width: 200px;
+    height: 100%;
+    min-height: 40px;
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Info21_v2 | Operations | Query</title>
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/operations.css') }}">
+{% endblock %}
+
+{% block content %}
+{% from 'macroses.html' import create_table %}
+<div class="operations">
+    <div class="query-content wrapper">
+        <form action="/query_input" method="post" id="query-form" enctype="multipart/form-data" class="query-form">
+            <div class="query input">
+                <label for="query">Enter query</label>
+                <input type="text" name="query" id="query" value="{{ query }}">
+            </div>
+            <input type="submit" value="Send query" class="query-submit">
+        </form>
+    </div>
+    {% if table_columns and not error %}
+    <div class="wrapper result-content">
+        <div class="result-table">
+            {{ create_table(table_columns, table_data) }}
+        </div>
+        <div class="result-export">
+            <form action="/custom_query_export/" method="post" id="export-form" enctype="multipart/form-data"
+                class="export-form">
+                <input type="submit" value="Export" class="export-btn">
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

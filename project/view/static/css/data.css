@@ -1,0 +1,55 @@
+@import url(table.css);
+@import url(macroses.css);
+@import url(form.css);
+
+.data {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 24px;
+    gap: 12px;
+}
+
+.data .res {
+    flex-basis: 100%;
+    overflow: hidden;
+}
+
+.crud,
+.load {
+    display: flex;
+    flex-direction: row;
+}
+
+.data .btn {
+    flex-basis: 100%;
+}
+
+.data .result {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.not-exist {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vi;
+    text-shadow: 2px 2px 3px #21212121;
+    color: #d4d4d4;
+}
+
+.disable {
+    background-color: #c6cfda;
+    color: #8191a2;
+    border: none;
+}
+
+.disable:hover {
+    background-color: #c6cfda;
+    color: #8191a2;
+    cursor: default;
+}

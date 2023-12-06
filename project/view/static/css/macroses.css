@@ -1,0 +1,58 @@
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #00000040;
+    backdrop-filter: blur(3px);
+    z-index: 1050;
+    opacity: 0;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal:target {
+    opacity: 1;
+    pointer-events: auto;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.modal-header h2 {
+    margin: 16px;
+}
+
+.close {
+    float: right;
+    font-size: 35px;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1;
+    color: #000;
+    opacity: .5;
+    text-decoration: none;
+}
+
+.close-hidden {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    cursor: default;
+}
+
+.modal-dialog {
+    z-index: 1051;
+}

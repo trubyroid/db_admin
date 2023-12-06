@@ -1,0 +1,79 @@
+{% macro create_modal(id, title, body=none) %}
+<div id="{{ id }}" class="modal">
+    <div class="modal-dialog wrapper">
+        <div>
+            <div class="modal-header">
+                <h2>{{ title }}</h2>
+                    <a href="#close" class="close">x</a>
+            </div>
+            <div>
+                {% if body %}
+                {{ body }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <a href="#close" class="close-hidden">&nbsp;</a>
+</div>
+{% endmacro %}
+
+{% macro create_card(title, name, desc, args=none) %}
+<div class="{{ title }} card">
+    <div class="title">
+        {{ title }}
+    </div>
+    <div class="name">
+        {{ name }}
+    </div>
+    <div class="desc scrollbar">
+        {{ desc }}
+    </div>
+    <a href="#{{ name }}" class="btn card-execute">
+        Select
+    </a>
+</div>
+{% set operation_form %}
+<form action="/{{ title }}-{{ name }}#result-op" method="post" onsubmit="return confirm('Confirm action')">
+    {% for arg_name in args %}
+    {% if arg_name is mapping %}
+        <input type="hidden" name="{{ arg_name['type'] }}" value="{{ arg_name['name'] }}">
+    {% else %}
+    <div class="input">
+        <label for="{{ arg_name }}">{{ arg_name }}</label>
+        <input type="text" name="{{ arg_name }}" id="{{ arg_name }}">
+    </div>
+    {% endif %}
+    {% endfor %}
+    <input type="submit" value="Execute">
+</form>
+{% endset %}
+{{ create_modal(name, name, operation_form) }}
+{% endmacro %}
+
+{% macro create_table(head, body, caption='') %}
+<table>
+    {% if caption != '' %}
+    <caption>{{ caption }}</caption>
+    {% endif %}
+    <tr>
+        {% for th in head %}
+        <th>{{ th|title }}</th>
+        {% endfor %}
+    </tr>
+</table>
+<div class="table-body scrollbar">
+    <table>
+        {% for td in body %}
+        <tr>
+            {% for col in td %}
+            {% if col == none %}
+            <td align="center"> - </td>
+            {% else %}
+            <td>{{ col }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endmacro %}

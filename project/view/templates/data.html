@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Info21_v2 | Data | {{ caption }}</title>
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/data.css') }}">
+{% endblock %}
+
+{% block content %}
+{% from 'macroses.html' import create_table %}
+<div class="data">
+    <div class="res wrapper">
+        {% if has_table %}
+        <div class="result">
+            {{ create_table(table_columns, table_data, caption) }}
+        </div>
+        {% else %}
+        <div class="not-exist">
+            Table Not Exist
+        </div>
+        {% endif %}
+    </div>
+    {% if has_table %}
+    <div class="crud wrapper">
+        <a href="#create" class="btn">Create</a>
+        <a href="#update" class="btn">Update</a>
+        <a href="#delete" class="btn">Delete</a>
+    </div>
+    <div class="load wrapper">
+        <a href="#import" class="btn">Import</a>
+        <a href="#export" class="btn">Export</a>
+    </div>
+    {% else %}
+    <div class="crud wrapper">
+        <div class="btn disable">Create</div>
+        <div class="btn disable">Update</div>
+        <div class="btn disable">Delete</div>
+    </div>
+    <div class="load wrapper">
+        <div class="btn disable">Import</div>
+        <div class="btn disable">Export</div>
+    </div>
+    {% endif %}
+
+    {% from 'macroses.html' import create_modal %}
+
+    {% set create %}
+    <form action="/table_{{ table_name }}" method="post" id="create-form" onsubmit="return confirm('Confirm action')">
+        <input type="hidden" name="type" value="create">
+        {% for th in table_columns %}
+        <div class="input">
+            <label for="{{ th }}">{{ th|title }}</label>
+            <input type="text" name="{{ th }}" id="{{ th }}">
+        </div>
+        {% endfor %}
+        <input type="submit" value="Apply">
+    </form>
+    {% endset %}
+
+
+    {% set update %}
+    {% if caption %}
+    <form action="/table_{{ table_name }}" method="post" id="update-form" onsubmit="return confirm('Confirm action')">
+        <input type="hidden" name="type" value="update">
+        <div class="input">
+            <label for="update-select-pk">{{ table_columns[0]|title }}</label>
+            <select id="update-select-pk" name="{{ table_columns[0] }}" class="scrollbar">
+                {% for td in table_data %}
+                <option value="{{ td[0] }}">{{ td[0] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% for th in table_columns[1:] %}
+        <div class="input">
+            <label for="{{ th }}">{{ th|title }}</label>
+            <input type="text" name="{{ th }}" id="{{ th }}">
+        </div>
+        {% endfor %}
+        <input type="submit" value="Apply">
+    </form>
+    {% endif %}
+    {% endset %}
+
+
+    {% set delete %}
+    {% if table_columns %}
+    <form action="/table_{{ table_name }}" method="post" id="delete-form" onsubmit="return confirm('Confirm action')">
+        <input type="hidden" name="type" value="delete">
+        <div class="input">
+            <label for="delete-select-pk">{{ table_columns[0]|title }}</label>
+            <select id="delete-select-pk" name="{{ table_columns[0] }}" class="scrollbar">
+                {% for td in table_data %}
+                <option value="{{ td[0] }}">{{ td[0] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="submit" value="Apply">
+    </form>
+    {% endif %}
+    {% endset %}
+
+    {% set import %}
+    <form action="/table_{{ table_name }}" method="post" id="import-form" onsubmit="return confirm('Confirm action')"
+        enctype="multipart/form-data">
+        <input type="hidden" name="type" value="import">
+        <input type="file" name="import" id="import">
+        <input type="submit" value="Send">
+    </form>
+    {% endset %}
+
+    {% set export %}
+    <form action="/table_{{ table_name }}" method="post" id="export-form" enctype="multipart/form-data">
+        <input type="hidden" name="type" value="export">
+        <input type="submit" value="Download">
+    </form>
+    {% endset %}
+
+    {{ create_modal('create', 'Create', create) }}
+    {{ create_modal('update', 'Update', update) }}
+    {{ create_modal('delete', 'Delete', delete) }}
+    {{ create_modal('import', 'Import', import) }}
+    {{ create_modal('export', 'Export', export) }}
+</div>
+{% endblock %}

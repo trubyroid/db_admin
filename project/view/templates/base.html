@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>header</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    {% block style %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block header %}
+    <header>
+        <a class="home" href="/"></a>
+        <div class="menu">
+            <a class="btn btn-head" href="/">Home</a>
+            <div class="head dropdown">
+                <div class="dropdown-options">
+                    <div class="tables scrollbar">
+                        {% if tables_names %}
+                        {% for name in tables_names %}
+                        <a href="/{{ 'table_' + name }}" class="option">{{ name|title }}</a>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="btn btn-head">Data</div>
+            </div>
+            <div class="head dropdown">
+                <div class="dropdown-options noscrollbar">
+                    <div class="tables noscrollbar">
+                        <a href="/query_input" class="option">Custom query</a>
+                        <a href="/functions" class="option">Stored functions</a>
+                    </div>
+                </div>
+                <div class="btn btn-head">Operations</div>
+            </div>
+        </div>
+    </header>
+    {% endblock %}
+    <div class="body">
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="error {{ 'show' if error else '' }}">
+        <p>{{ error_message }}</p>
+        <div class="btn-close-error">x</div>
+    </div>
+</body>
+<script>
+    const error = document.querySelector('.error');
+    const close_error_btn = document.querySelector('.btn-close-error');
+
+    close_error_btn.onclick = () => {
+        error.classList.remove('show')
+    }
+</script>
+</html>

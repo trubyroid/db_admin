@@ -1,0 +1,157 @@
+.description {
+    flex-basis: 100%;
+    padding: 24px;
+    height: 100%;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.info-description {
+    overflow-y: auto;
+    text-indent: 25px;
+    font-size: 14pt;
+}
+
+.info-develops {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    width: 100%;
+}
+
+.dev-card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    height: min-content;
+    box-shadow: 0px 5px 10px #c4c4c4;
+}
+
+.dev-card .title {
+    position: relative;
+    top: -10px;
+    font-weight: 600;
+    color: #008bff;
+}
+
+
+.avatar {
+    background: url(../images/avatar.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 200px;
+    min-width: 200px;
+    height: 200px;
+    border: 2px solid cornflowerblue;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 12px;
+}
+
+.main-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tribe {
+    display: flex;
+    align-items: center;
+    position: relative;
+    right: 100px;
+    z-index: 1;
+    padding: 8px;
+    padding-left: 100px;
+    width: 150%;
+    height: 50px;
+    color: white;
+}
+
+.smooth-shade::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+}
+
+.ignis-bgc {
+    background-color: #ff4500;
+}
+
+.ignis-ss::after {
+    background: linear-gradient(to right, #ff4500, white);
+}
+
+.terra-bgc {
+    background-color: #66cdaa;
+}
+
+.terra-ss::after {
+    background: linear-gradient(to right, #66cdaa, white);
+}
+
+.nick {
+    display: flex;
+    align-items: center;
+    position: relative;
+    right: 100px;
+    z-index: 1;
+    padding: 8px;
+    padding-left: 100px;
+    width: 150%;
+    height: 50px;
+}
+
+
+.nick-bgc {
+    background-color: #ebebeb;
+}
+
+.nick-ss::after {
+    background: linear-gradient(to right, #ebebeb, white);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    height: 100px;
+}
+
+.link {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.telega {
+    background: url(../images/telegram.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.github {
+    background: url(../images/github.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
