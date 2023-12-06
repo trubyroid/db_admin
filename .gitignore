@@ -1,4 +1,4 @@
-.idea/
+.idea
 venv
 project/.env
 project/app.log
