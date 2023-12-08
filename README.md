@@ -12,8 +12,8 @@ INFO 21
 ## Старт
 >[!IMPORTANT]
 > Для работы с проектом необходимо заполнить базу данных (например, файлами из директории database).  
-> Также нужно добавить файл **.env** в директорию **project**.  
->В нём должны быть указаны DATABASE, POSTG_USER, POSTG_PASW, HOST и PORT.
+> Также нужно добавить файл **.env** в директорию **project** с указанием переменных для коннекта с базой:  
+(DATABASE, POSTG_USER, POSTG_PASW, POSTG_HOST и POSTG_PORT)
 
 1. Для установки пакетов - `pip install -r requirements.txt`
 3. Для запуска приложения на **http://127.0.0.1:5000** - `flask run` в папке project
