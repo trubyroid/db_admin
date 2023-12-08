@@ -13,17 +13,20 @@ INFO 21
 1. Для установки пакетов - `pip install -r requirements.txt`
 2. Для запуска приложения на **http://127.0.0.1:5000** - `flask run` в папке project
 
-## Menu
+### Menu
 ![Menu](./images/menu_screen.png)  
 - `Home` и нажатие по логотипу отправляет на главную страницу с информацией о проекте и разработчиках.
 - `Data` предоставит выбор таблицы для чтения, редактирования, импорта и экспорта
 - `Operations` хранит в себе разделы `Custom query` и `Stored functions`
 
-## Data
+### Data
+Предоставляет доступ к таблицам и работе с ними:  
 ![Data](./images/data.gif)  
-## Custom query
+### Custom query
+Возможность ввода собственного sql-запроса:  
 ![Custom query](./images/custom_query.gif)  
-## Stored functions
+### Stored functions
+Работа с хранимыми процедурами/функциями:  
 ![Functions](./images/stored_functions.gif)  
 
 >[!IMPORTANT]
