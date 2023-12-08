@@ -10,7 +10,7 @@ INFO 21
 - Экспорт таблиц/результатов запроса/результатов функций в .csv
 
 ## Быстрый старт
-1. Для установки зависимостей - `pip install -r requirements.txt`
+1. Для установки пакетов - `pip install -r requirements.txt`
 2. Для запуска приложения на **http://127.0.0.1:5000** - `flask run` в папке project
 
 ## Меню
@@ -20,11 +20,10 @@ INFO 21
 - `Operations` хранит в себе разделы `Custom query` и `Stored functions`
 
 ## Data
-![Data](./images/data_screen.png)  
-## Operations
-### Custom query
-![Custom query](./images/custom_query_screen.png)  
-### Stored functions
+![Data](./images/data.gif)  
+## Custom query
+![Custom query](./images/custom_query.gif)  
+## Stored functions
 ![Functions](./images/stored_functions.gif)  
 
 ### Режимы
