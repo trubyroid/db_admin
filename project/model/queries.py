@@ -1,6 +1,6 @@
 from controller.page_class import Page, PageData, PageFunc
 from model.utils import formatting_update_vals
-from config import db
+from settings import db
 from psycopg2 import sql
 from loguru import logger
 

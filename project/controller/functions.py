@@ -1,5 +1,5 @@
 from controller.page_class import PageFunc
-from config import db, logger
+from settings import db, logger
 from model.connection import Database
 from model.queries import (
     get_tables_names,

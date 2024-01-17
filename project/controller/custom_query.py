@@ -10,7 +10,7 @@ from model.queries import (
     get_tables_names,
     get_result_table
 )
-from config import db, logger
+from settings import db, logger
 
 
 def send_custom_query(pc: PageCustom, query: str):

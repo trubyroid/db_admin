@@ -9,7 +9,7 @@ from model.queries import (
 )
 import werkzeug.datastructures.file_storage
 from controller.page_class import Page, PageData
-from config import logger
+from settings import logger
 import os
 
 project_dir = os.path.dirname(os.path.dirname(__file__))
