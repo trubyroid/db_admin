@@ -12,7 +12,7 @@ import signal
 def get_params() -> dict:
     """Возвращает параметры для соединения с бд"""
 
-    dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+    dotenv_path = os.path.join(os.path.dirname(__file__), 'config/.env')
     if os.path.exists(dotenv_path):
         load_dotenv(dotenv_path)
 

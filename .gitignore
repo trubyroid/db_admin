@@ -1,6 +1,6 @@
 .idea
 venv
-project/.env
+project/config/.env
 project/app.log
 project/logs/log_*
 project/tables/*.csv
