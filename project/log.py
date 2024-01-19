@@ -1,5 +1,6 @@
-from loguru import logger
 import logging
+
+from loguru import logger
 
 LOG_CONFIG = {
     'sink': 'logs/log_{time:DD-MM-YY-HH-mm-SS}.log',

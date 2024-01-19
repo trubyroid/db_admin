@@ -1,9 +1,9 @@
-from flask import Flask
-from controller.routes import app_route, app_error
-
 import logging
+
+from flask import Flask
 from loguru import logger
 
+from controller.routes import app_error, app_route
 
 # Запуск приложения
 app = Flask(__name__,
@@ -20,6 +20,7 @@ log.setLevel(logging.WARNING)
 
 # Отправляем сообщение в loguru
 logger.success("App started working. Running on http://127.0.0.1:5000")
+
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5000)

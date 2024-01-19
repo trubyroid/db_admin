@@ -1,8 +1,9 @@
 from controller.page_class import Page, PageData, PageFunc
-from model.utils import formatting_update_vals
-from settings import db
-from psycopg2 import sql
 from loguru import logger
+from psycopg2 import sql
+from settings import db
+
+from model.utils import formatting_update_vals
 
 
 def get_result_table(page: Page):

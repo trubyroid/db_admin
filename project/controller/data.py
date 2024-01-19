@@ -1,16 +1,12 @@
-from model.queries import (
-    get_tables_names,
-    get_result_table,
-    insert_row,
-    update_row,
-    delete_row,
-    truncate_cascade,
-    call_procedure
-)
-import werkzeug.datastructures.file_storage
-from controller.page_class import Page, PageData
-from settings import logger
 import os
+
+import werkzeug.datastructures.file_storage
+from model.queries import (call_procedure, delete_row, get_result_table,
+                           get_tables_names, insert_row, truncate_cascade,
+                           update_row)
+from settings import logger
+
+from controller.page_class import Page, PageData
 
 project_dir = os.path.dirname(os.path.dirname(__file__))
 if not os.path.exists("tables"):

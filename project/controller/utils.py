@@ -1,6 +1,8 @@
 import re
-from controller.page_class import Page, PageData
+
 from loguru import logger
+
+from controller.page_class import Page, PageData
 
 
 def not_select(que: str):

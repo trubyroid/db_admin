@@ -1,28 +1,12 @@
 
-from controller.data import (
-    get_tables,
-    create_operation,
-    read_operation,
-    update_operation,
-    delete_operation,
-    import_table,
-    export_table
-)
-from controller.custom_query import (
-    custom_query_handler
-)
-from controller.functions import (
-    get_functions_page,
-    execute_operation
-)
-from flask import (
-    Blueprint,
-    render_template,
-    send_file,
-    request
-)
+from flask import Blueprint, render_template, request, send_file
 from loguru import logger
 
+from controller.custom_query import custom_query_handler
+from controller.data import (create_operation, delete_operation, export_table,
+                             get_tables, import_table, read_operation,
+                             update_operation)
+from controller.functions import execute_operation, get_functions_page
 
 app_route = Blueprint("route", __name__)
 app_error = Blueprint("errors", __name__)

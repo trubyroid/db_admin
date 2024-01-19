@@ -1,19 +1,11 @@
-from controller.page_class import PageFunc
-from settings import db, logger
 from model.connection import Database
-from model.queries import (
-    get_tables_names,
-    get_funcs,
-    get_func_description,
-    drop_tmp_table,
-    use_function,
-    get_result_table,
-    call_ref_procedure,
-    create_ref_table,
-    insert_ref_values,
-    call_procedure
-)
+from model.queries import (call_procedure, call_ref_procedure,
+                           create_ref_table, drop_tmp_table,
+                           get_func_description, get_funcs, get_result_table,
+                           get_tables_names, insert_ref_values, use_function)
+from settings import db, logger
 
+from controller.page_class import PageFunc
 
 except_funcs = (
     "pr_import_from_csv_to_table",

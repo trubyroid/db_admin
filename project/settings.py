@@ -1,12 +1,12 @@
-from model.connection import Database
-from dotenv import load_dotenv
+import os
+import signal
+import sys
 
-import log
+from dotenv import load_dotenv
 from loguru import logger
 
-import os
-import sys
-import signal
+import log
+from model.connection import Database
 
 
 def get_params() -> dict:

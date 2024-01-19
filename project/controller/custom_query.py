@@ -1,16 +1,9 @@
-from controller.utils import (
-    get_changed_table,
-    query_check,
-    not_select,
-)
-from controller.page_class import PageCustom
-from model.queries import (
-    drop_tmp_table,
-    create_as_select,
-    get_tables_names,
-    get_result_table
-)
+from model.queries import (create_as_select, drop_tmp_table, get_result_table,
+                           get_tables_names)
 from settings import db, logger
+
+from controller.page_class import PageCustom
+from controller.utils import get_changed_table, not_select, query_check
 
 
 def send_custom_query(pc: PageCustom, query: str):

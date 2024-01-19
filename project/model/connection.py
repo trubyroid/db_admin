@@ -1,8 +1,10 @@
-from model.utils import db_error_handler
-from controller.page_class import Page
-from psycopg2 import connect, sql, DatabaseError
 from typing import Iterable
+
+from controller.page_class import Page
 from loguru import logger
+from psycopg2 import DatabaseError, connect, sql
+
+from model.utils import db_error_handler
 
 
 class Database:
