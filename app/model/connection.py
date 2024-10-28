@@ -31,11 +31,13 @@ class Database:
 
     def disconnect_db(self) -> None:
         """Отключается от бд"""
-        logger.success('Connection terminated.')
+        logger.success("Connection terminated.")
         if self.connection is not None:
             self.connection.close()
 
-    def query_execute(self, page: Page, query: sql.SQL, params: Iterable = None) -> list:
+    def query_execute(
+        self, page: Page, query: sql.SQL, params: Iterable = None
+    ) -> list:
         """Выполняет запрос, возвращает результат"""
         result = tuple()
         try:
@@ -57,5 +59,3 @@ class Database:
         finally:
             self.connection.commit()
         return result
-
- 

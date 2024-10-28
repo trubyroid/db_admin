@@ -1,5 +1,9 @@
-from model.queries import (create_as_select, drop_tmp_table, get_result_table,
-                           get_tables_names)
+from model.queries import (
+    create_as_select,
+    drop_tmp_table,
+    get_result_table,
+    get_tables_names,
+)
 from settings import db, logger
 
 from controller.page_class import PageCustom

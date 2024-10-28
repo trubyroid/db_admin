@@ -1,9 +1,15 @@
 import os
 
 import werkzeug.datastructures.file_storage
-from model.queries import (call_procedure, delete_row, get_result_table,
-                           get_tables_names, insert_row, truncate_cascade,
-                           update_row)
+from model.queries import (
+    call_procedure,
+    delete_row,
+    get_result_table,
+    get_tables_names,
+    insert_row,
+    truncate_cascade,
+    update_row,
+)
 from settings import logger
 
 from controller.page_class import Page, PageData
@@ -79,15 +85,15 @@ def delete_operation(table_name: str, requested_form: dict) -> dict:
 
     pd = PageData(table=table_name)
     pd.pk = primary_key
-    params = (primary_val, )
+    params = (primary_val,)
 
     delete_row(pd, params)
     return pd
 
 
-def import_table(table_name: str,
-                 imported_file: werkzeug.datastructures.file_storage.FileStorage
-                 ) -> dict:
+def import_table(
+    table_name: str, imported_file: werkzeug.datastructures.file_storage.FileStorage
+) -> dict:
     """Запускает процесс импорта данных из csv"""
 
     pd = PageData(table=table_name)
@@ -99,8 +105,8 @@ def import_table(table_name: str,
         pd.set_csv_path(f"{project_dir}/tables/{new_table_file}")
         imported_file.save(pd.csv_path)
 
-        pd.proc_name = 'pr_import_from_csv_to_table'
-        params = (table_name, pd.csv_path, ',')
+        pd.proc_name = "pr_import_from_csv_to_table"
+        params = (table_name, pd.csv_path, ",")
 
         truncate_cascade(pd)
         call_procedure(pd, params)
@@ -114,8 +120,8 @@ def export_table(table_name: str) -> dict:
 
     pd.set_csv_path(f"{project_dir}/tables/{table_name}.csv")
 
-    pd.proc_name = 'pr_export_to_csv_from_table'
-    params = (table_name, pd.csv_path, ',')
+    pd.proc_name = "pr_export_to_csv_from_table"
+    params = (table_name, pd.csv_path, ",")
 
     call_procedure(pd, params)
     return pd

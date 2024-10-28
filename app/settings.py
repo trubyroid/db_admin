@@ -12,22 +12,22 @@ from model.connection import Database
 def get_params() -> dict:
     """Возвращает параметры для соединения с бд"""
 
-    dotenv_path = os.path.join(os.path.dirname(__file__), 'config/.env')
+    dotenv_path = os.path.join(os.path.dirname(__file__), "config/.env")
     if os.path.exists(dotenv_path):
         load_dotenv(dotenv_path)
 
-    host = os.environ['POSTG_HOST']
-    port = os.environ['POSTG_PORT']
-    database = os.environ['DATABASE']
-    user = os.environ['POSTG_USER']
-    password = os.environ['POSTG_PASW']
+    host = os.environ["POSTG_HOST"]
+    port = os.environ["POSTG_PORT"]
+    database = os.environ["DATABASE"]
+    user = os.environ["POSTG_USER"]
+    password = os.environ["POSTG_PASW"]
 
     return {
         "host": host,
         "port": port,
         "database": database,
         "user": user,
-        "password": password
+        "password": password,
     }
 
 

@@ -6,9 +6,9 @@
 
 class Page:
     """Родительский класс, содержит только данные и методы,
- которые могут понадобиться во всех случаях"""
-    def __init__(self, table: str = "",
-                 return_mode: bool = False):
+    которые могут понадобиться во всех случаях"""
+
+    def __init__(self, table: str = "", return_mode: bool = False):
 
         self.table_name = table
         self.return_mode = return_mode
@@ -36,9 +36,8 @@ class Page:
 
 class PageData(Page):
     """Класс для вывода страниц из меню Data"""
-    def __init__(self,
-                 table: str,
-                 return_mode: bool = False):
+
+    def __init__(self, table: str, return_mode: bool = False):
 
         super().__init__(table, return_mode)
 
@@ -65,20 +64,22 @@ class PageData(Page):
 
 class PageCustom(PageData):
     """Класс для вывода страницы пользовательского запроса"""
+
     def __init__(self, return_mode: bool = False):
-        super().__init__(table="custom_table",
-                         return_mode=return_mode)
+        super().__init__(table="custom_table", return_mode=return_mode)
 
 
 class PageFunc(PageData):
     """Класс для работы с хранимыми функциями"""
-    def __init__(self,
-                 operation_name: str = "",
-                 return_mode: bool = False,
-                 has_table: bool = True):
 
-        super().__init__(table="func_result",
-                         return_mode=return_mode)
+    def __init__(
+        self,
+        operation_name: str = "",
+        return_mode: bool = False,
+        has_table: bool = True,
+    ):
+
+        super().__init__(table="func_result", return_mode=return_mode)
 
         self.operation_name = operation_name
 
@@ -107,7 +108,7 @@ class PageFunc(PageData):
     def add_function(self, function):
         self.functions.append(function)
 
-    def set_proc_result(self, val = None):
+    def set_proc_result(self, val=None):
         if not self.error:
             result = f"The procedure {self.proc_name} has successfully completed."
         else:
