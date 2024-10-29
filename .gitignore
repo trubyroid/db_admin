@@ -4,7 +4,6 @@ app/config/.env
 app/app.log
 app/logs/log_*
 app/tables/*.csv
-app/controller/__pycache__/
-app/model/__pycache__/
-app/__pycache__/
+
+*__pycache__
 *.DS_Store
