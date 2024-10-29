@@ -7,3 +7,4 @@ app/tables/*.csv
 app/controller/__pycache__/
 app/model/__pycache__/
 app/__pycache__/
+*.DS_Store
