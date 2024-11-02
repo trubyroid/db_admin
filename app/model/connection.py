@@ -22,12 +22,15 @@ class Database:
 
         logger.info("Connecting to the database...")
 
-        try:
-            self.connection = connect(**self.params)
-        except (Exception, DatabaseError) as err:
-            logger.error(err)
-        else:
-            logger.success("Connection successful.")
+        while 1:
+            try:
+                self.connection = connect(**self.params)
+            except (Exception, DatabaseError) as err:
+                logger.warning(err)
+                logger.info("Trying to connect again...")
+            else:
+                logger.success("Connection successful.")
+                break
 
     def disconnect_db(self) -> None:
         """Отключается от бд"""

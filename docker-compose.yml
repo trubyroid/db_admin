@@ -6,8 +6,6 @@ services:
       - "5001:5000"
     depends_on:
       - postgres
-    networks:
-      - backend
 
   postgres:
     image: postgres:17
@@ -21,8 +19,7 @@ services:
       - ./database/pgdata/:/var/lib/postgresql/data/pgdata
     ports:
       - "5432:5432"
-    networks:
-      - backend
+
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U user -d db" ]
       interval: 10s
@@ -38,6 +35,3 @@ services:
 
 volumes:
   db_data:
-
-networks:
-  backend:
