@@ -45,7 +45,7 @@ def test_query_input():
     """Test if the query input is working correctly."""
     response = requests.post(
         url="http://localhost:5001/query_input/",
-        data={"query": "select * from Checks;"}
+        data={"query": f"select * from {tables_names[0]};"},
     )
 
     assert BeautifulSoup(response.content, features="html.parser").find(
