@@ -5,9 +5,6 @@ General tests for the web app.
 import requests
 from bs4 import BeautifulSoup
 
-# global tables_names
-tables_names = []
-
 
 def test_index():
     """
@@ -19,14 +16,8 @@ def test_index():
     assert response.headers["Content-Type"] == "text/html; charset=utf-8"
     assert response.headers["Content-Length"] == "5590"
 
-    soup = BeautifulSoup(response.content, features="html.parser")
-    scrollbar = soup.find(name="div", class_="tables scrollbar")
 
-    global tables_names
-    tables_names = scrollbar.get_text().strip().split("\n")
-
-
-def test_tables_pages():
+def test_tables_pages(tables_names):
     """Test if the tables pages are working correctly."""
     for name in tables_names:
         response = requests.get(f"http://localhost:5001/table_{name}")
@@ -41,7 +32,7 @@ def test_query_input_page():
     assert response.headers["Content-Type"] == "text/html; charset=utf-8"
 
 
-def test_query_input():
+def test_query_input(tables_names):
     """Test if the query input is working correctly."""
     response = requests.post(
         url="http://localhost:5001/query_input/",
