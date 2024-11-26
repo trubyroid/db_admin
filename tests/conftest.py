@@ -14,3 +14,15 @@ def tables_names():
     scrollbar = soup.find(name="div", class_="tables scrollbar")
 
     return scrollbar.get_text().strip().split("\n")
+
+
+@pytest.fixture(scope="session")
+def teardown_db():
+    """
+    Drop the test_table after the tests.
+    """
+    yield
+    requests.post(
+        url="http://localhost:5001/query_input/",
+        data={"query": "DROP TABLE IF EXISTS test_table;"},
+    )

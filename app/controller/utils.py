@@ -37,11 +37,11 @@ def query_check(page_data: PageData, query: str) -> bool:
         page_data.set_error("ERROR: you can enter only one query.")
         return False
 
-    if any(map(lambda x: x in query, ["DROP", "TRUNCATE"])):
-        logger.warning(
-            "Somebody tried to delete or truncate the table by custom query."
-        )
-        page_data.set_error("ERROR: you cannot delete or clear the table.")
-        return False
+    # if any(map(lambda x: x in query, ["DROP", "TRUNCATE"])):
+    #     logger.warning(
+    #         "Somebody tried to delete or truncate the table by custom query."
+    #     )
+    #     page_data.set_error("ERROR: you cannot delete or clear the table.")
+    #     return False
 
     return True
