@@ -10,7 +10,6 @@ from bs4 import BeautifulSoup
 def test_index():
     """
     Test if the index page is working correctly.
-    Also gets the tables names.
     """
     response = requests.get("http://localhost:5001")
     assert response.status_code == 200

@@ -1,9 +1,11 @@
 import pytest
+import allure
 import requests
 from bs4 import BeautifulSoup
 
 
 @pytest.fixture(scope="session")
+@allure.title("Get current tables names")
 def tables_names():
     """
     Return a list of tables names.
@@ -17,6 +19,7 @@ def tables_names():
 
 
 @pytest.fixture(scope="session")
+@allure.title("Drop table test_table for teardown")
 def teardown_db():
     """
     Drop the test_table after the tests.
